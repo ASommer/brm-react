@@ -44,16 +44,18 @@ const GET_BIKES = gql`
 
 
 const BMap = () => {
-
   const { data, error } = useQuery(GET_BIKES, {
     variables: defaultCoords
   });
 
-  function NewQuery() {
+  function VehicleMarker() {
     if(error) return <div>New Error</div>
-    return (
-        <h2>Results: {data.vehicles && data.vehicles.length && <span>{data.vehicles.length} </span>} </h2>
-    )
+
+    return <div>test to prevent query</div>
+
+    // return (
+    //     <h2>Results: {data.vehicles && data.vehicles.length && <span>{data.vehicles.length} </span>} </h2>
+    // )
   }
 
   return (
@@ -81,7 +83,7 @@ const BMap = () => {
       <Suspense fallback={<div>Loading ...</div> }>
 
         <h3>Within Suspense</h3>
-        <NewQuery />
+        <VehicleMarker />
 
       </Suspense>
     </div>
