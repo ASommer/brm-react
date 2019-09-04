@@ -1,14 +1,12 @@
 import React from 'react';
-import Logo from './Logo';
 import Navigation from './Navigation';
 
 const Header = () => {
   return (
-    <div>
-      <h1>Bikerentalmap</h1>
-      <Logo />
+    <header className="header">
+      <h1 className="title">Bikerentalmap</h1>
       <Navigation />
-    </div>
+    </header>
   );
 };
 

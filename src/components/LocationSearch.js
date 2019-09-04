@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import getLocationByCityname from '../helper/geoLocationByCityName';
-import Typeahead from './Typeahead';
 import Autosuggest from 'react-autosuggest';
 
 const LocationSearch = ({ updateLocation }) => {
@@ -31,7 +30,8 @@ const LocationSearch = ({ updateLocation }) => {
         id: item.LocationId,
         locationName: item.Address.Label,
         lat: item.DisplayPosition.Latitude,
-        lng: item.DisplayPosition.Longitude
+        lng: item.DisplayPosition.Longitude,
+        mapView: item.MapView
       }));
       setIsLoading(false);
       setLocSuggestions(suggestions);

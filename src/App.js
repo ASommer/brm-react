@@ -1,20 +1,36 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
 // import Layout from './components/Layout';
-import Page1 from './components/Page1';
+// import HomePage from './components/Page1';
 // import {ApolloProvider} from 'react-apollo';
 import { ApolloProvider as ApolloProviderHooks} from '@apollo/react-hooks';
 import mcClient from './apollo/client';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header';
+import HomePage from './components/Home';
+import AboutPage from './components/AboutPage';
+import Layout from './components/Layout';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-    {/* <ApolloProvider client={mcClient}> */}
-    <ApolloProviderHooks client={mcClient}>
-      <Page1 />
-    </ApolloProviderHooks>
-    {/* </ApolloProvider> */}    
+    <BrowserRouter>
+      {/* <ApolloProvider client={mcClient}> */}
+      <ApolloProviderHooks client={mcClient}>
+        <Header />
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/about" component={AboutPage}/>
+          </Switch>
+        </Layout>
+        <Footer />
+      </ApolloProviderHooks>
+      {/* </ApolloProvider> */}    
+
+    </BrowserRouter>
     </div>
   );
 }
