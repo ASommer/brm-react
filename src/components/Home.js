@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import LocationSearch from './LocationSearch';
 import BMap from './BMap';
-import Layout from './Layout';
 
-const Page1 = () => {
+const HomePage = () => {
   const [location, setlocation] = useState({
     lat: null,
     lng: null,
@@ -19,16 +18,11 @@ const Page1 = () => {
   };
 
   return (
-    <Layout pageName="Page1">
-      <div className="page1">
-        <strong>
-          Page1 - LocationName: <span>{location.locationName}</span>
-        </strong>
+      <div className="homepage" style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
         <LocationSearch updateLocation={updateLocation} />
         <BMap location={location} />
       </div>
-    </Layout>
   );
 };
 
-export default Page1;
+export default HomePage;

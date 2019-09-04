@@ -1,3 +1,24 @@
+# Bikerentalmap
+
+React based App show availables bike, scooters etc. 
+Data are provided by the [flucto API](https://flow.fluctuo.com/)
+Trying React Hooks
+
+## Todo
+- vehicle details animation(slide) with react Transitions
+- refetch with debounce on moveend
+- cache policy (prevent refetching on page switch)
+- testing with jest and react-testing
+- TravisCI
+- refetch policy
+- use cache and cookies
+- fitbound map to results ()
+- add filter options
+- enable PWA
+- convert into Monorepo with own Graphql endpoint for usage of further API (bikeciti.es et. al.)
+---
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,0 +1,21 @@
+.selected-vehicle {
+  background-color: var(--transparent-background);
+  border: 2px solid var(--brand-color);
+  padding: 0.5rem;
+  color: var(--brand-color);
+}
+
+.selected-vehicle .details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selected-vehicle .provider-name a {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.selected-vehicle a {
+  color: var(--brand-color);
+  text-decoration: none;
+}
