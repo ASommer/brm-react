@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useQuery } from '@apollo/react-hooks';
 
@@ -7,9 +7,10 @@ import '../styles/bmap.css'
 import gql from 'graphql-tag';
 // import {Query} from 'react-apollo'
 
-const defaultCoords = {
+const defaultPosition = {
   lat: 52.52,
-  lng: 13.41
+  lng: 13.41,
+  locationName: 'myBerlin' 
 }
 
 const GET_BIKES = gql`
@@ -43,9 +44,21 @@ const GET_BIKES = gql`
 `;
 
 
-const BMap = () => {
+const BMap = ({location}) => {
+  const [mapPosition, setMapPosition] = useState(defaultPosition);
+  
+  useEffect(() => {
+    location.lat && location.lng && setMapPosition(location);
+  }, [location]);
+
+  // console.log('mapPosition:###### ', mapPosition)
+  // // console.log('mapPosition.lat: ', mapPosition.lat)
+  // // console.log('mapPosition.lng: ', mapPosition.lng)
+  // console.log('location: ', location)
+
+
   const { data, error } = useQuery(GET_BIKES, {
-    variables: defaultCoords
+    variables: mapPosition
   });
 
   function VehicleMarker() {
@@ -62,7 +75,7 @@ const BMap = () => {
     <div className="map-container" style={{height: '100%', minHeight: 400}}>
       <h2>BMap</h2>
       <LeafletMap
-        center={[defaultCoords.lat, defaultCoords.lng]}
+        center={[mapPosition.lat, mapPosition.lng]}
         zoom={6}
         maxZoom={10}
         attributionControl={true}
@@ -74,7 +87,7 @@ const BMap = () => {
         easeLinearity={0.35}
       >
         <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
-        <Marker position={[defaultCoords.lat, defaultCoords.lng]}>
+        <Marker position={[mapPosition.lat, mapPosition.lng]}>
           <Popup>Popup for any custom information.</Popup>
         </Marker>
 

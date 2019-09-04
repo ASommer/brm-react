@@ -25,7 +25,7 @@ const Page1 = () => {
           Page1 - LocationName: <span>{location.locationName}</span>
         </strong>
         <LocationSearch updateLocation={updateLocation} />
-        <BMap />
+        <BMap location={location} />
       </div>
     </Layout>
   );
