@@ -60,20 +60,29 @@ const BMap = () => {
   const mapRef = createRef();
 
   const updateLocation = newLocation => {
-    setlocation({
-      ...location,
-      ...newLocation
-    });
+
+    const mapMoveTreshold = .002 //TODO: should calculatetd more precisely and separately for lat and lng
+    if (
+      newLocation && 
+      (Math.abs(location.lat - newLocation.lat) > mapMoveTreshold ||
+      Math.abs(location.lng - newLocation.lng) > mapMoveTreshold)
+    ) {
+      console.log('update location');
+      setlocation({
+        ...location,
+        ...newLocation
+      });
+    }
   };
 
   const showVehicleDetails = (e, item) => {
-    const itemActive = item !== selectedVehicle ? item : null
-    setDetailsVisible(!!itemActive); 
+    const itemActive = item !== selectedVehicle ? item : null;
+    setDetailsVisible(!!itemActive);
     setSelectedVehicle(itemActive);
   };
 
   useEffect(() => {
-    console.log('rerender on location change');
+    console.log('rerender on location change --- useEffect');
 
     const map = mapRef.current;
     if (map !== null && location.mapView) {
@@ -93,12 +102,14 @@ const BMap = () => {
     // map.leafletElement.setZoom(14);
   }, [location, mapRef]);
 
+  console.log('mapPosition :', mapPosition);
+
   const onZoomEnd = e => {
     console.log('zoomend ', e);
   };
 
   const onMooveEnd = e => {
-    console.log('onmooveend');
+    updateLocation(e.target.getCenter());
   };
 
   const { data, loading, error } = useQuery(GET_BIKES, {
