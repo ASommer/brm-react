@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer } from 'react-leaflet';
 import VehicleMarker from './VehicleMarker';
 import { useQuery } from '@apollo/react-hooks';
 import '../styles/bmap.css';
@@ -12,7 +12,7 @@ const defaultPosition = {
   lat: 52.52,
   lng: 13.41,
   locationName: 'myBerlin',
-  zoom: 12
+  zoom: 14
 };
 
 const GET_BIKES = gql`
@@ -70,8 +70,6 @@ const BMap = ({ location }) => {
         We search vehicles within an radius of max 400m. It might help sometimes
         to move the map in order to find vehicles
       </small>
-
-      <button>Test</button>
       {error && <div className="notification">Note: {error}</div>}
 
       <LeafletMap

@@ -27,11 +27,11 @@ const VehicleMarker = props => {
     }) 
 
   return (
-    <Marker 
-      icon={networkIcon}
-      position={props.position}
-      onClick={e => props.clickHandler(e)}
-    />
+      <Marker 
+        icon={networkIcon}
+        position={props.position}
+        onClick={e => props.clickHandler(e)}
+      />
   )
 }
 
