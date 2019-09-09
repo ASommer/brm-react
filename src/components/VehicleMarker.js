@@ -4,12 +4,12 @@ import { Marker } from "react-leaflet"
 
 const VehicleMarker = props => {
 
-  let provIcon = require(`../assets/provider/markers/default.png`);
-  let provIconRetina = require(`../assets/provider/markers/default-2x.png`);
+  let provIcon = require(`../assets/markers/default.png`);
+  let provIconRetina = require(`../assets/markers/default-2x.png`);
 
   try {
-    provIcon = require(`../assets/provider/markers/${props.providerSlug}.png`);
-    provIconRetina = require(`../assets/provider/markers/${props.providerSlug}-2x.png`);
+    provIcon = require(`../assets/markers/${props.providerSlug}.png`);
+    provIconRetina = require(`../assets/markers/${props.providerSlug}-2x.png`);
   } catch (error) {
     console.log('provicon error ')
   }
