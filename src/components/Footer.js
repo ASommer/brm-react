@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            Bikerentalmap 2019
-        </footer>
-    )
-}
+  return <footer className="footer">Bikerentalmap 2019</footer>;
+};
 
-export default Footer
+export default Footer;

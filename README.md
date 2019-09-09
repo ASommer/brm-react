@@ -5,6 +5,7 @@ Data are provided by the [flucto API](https://flow.fluctuo.com/)
 Trying React Hooks
 
 ## Todo
+- add submitbutton to locationsearchform
 - vehicle details animation(slide) with react Transitions
 - refetch with debounce on moveend
 - cache policy (prevent refetching on page switch)

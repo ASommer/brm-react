@@ -10,7 +10,6 @@ const HomePage = () => {
   });
 
   const updateLocation = newLocation => {
-    console.log('updateLocation in page1: ', newLocation)
     setlocation({
       ...location,
       ...newLocation
@@ -18,7 +17,7 @@ const HomePage = () => {
   };
 
   return (
-      <div className="homepage" style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
+      <div className="homepage page">
         <LocationSearch updateLocation={updateLocation} />
         <BMap location={location} />
       </div>
