@@ -1,10 +1,8 @@
 import React from "react"
 import L from 'leaflet';
 import { Marker } from "react-leaflet"
-// import '../../styles/mc-marker.scss';
 
 const VehicleMarker = props => {
-
   let provIcon = require(`../assets/markers/default.png`);
   let provIconRetina = require(`../assets/markers/default-2x.png`);
 
@@ -12,7 +10,7 @@ const VehicleMarker = props => {
     provIcon = require(`../assets/markers/${props.providerSlug}.png`);
     provIconRetina = require(`../assets/markers/${props.providerSlug}-2x.png`);
   } catch (error) {
-    console.log('provicon error ', error)
+    console.log('provicon error ')
   }
 
   const  networkIcon = new L.Icon({
@@ -28,11 +26,11 @@ const VehicleMarker = props => {
     }) 
 
   return (
-    <Marker 
-      icon={networkIcon}
-      position={props.position}
-      onClick={e => props.clickHandler(e)}
-    />
+      <Marker 
+        icon={networkIcon}
+        position={props.position}
+        onClick={e => props.clickHandler(e)}
+      />
   )
 }
 
