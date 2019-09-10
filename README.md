@@ -1,15 +1,15 @@
 # Bikerentalmap
+Demo: [brm-react-demo.bikerentalmap.com](htts://brm-react-demo.bikerentalmap.com)
 
 React based App show availables bike, scooters etc. 
 Data are provided by the [flucto API](https://flow.fluctuo.com/)
 Trying React Hooks
 
 ## Get work on your local machine
-
 You should have a current version (9+) of [NodeJs](https://nodejs.org) installed on your machine.
 
 1. Clone or download this repo.
-2. In order to use the [HERE](https.here.com) [Geolocation API(https://developer.here.com/documentation/geocoder/topics/what-is.html?create=Freemium-Basic&keepState=true&step=account)], create an account for free.
+2. In order to use the [HERE](https:://here.com) [Geolocation API](https://developer.here.com/documentation/geocoder/topics/what-is.html?create=Freemium-Basic&keepState=true&step=account), create an account for free.
 3. To fetch vehicle data create a developer account for the [flucto API](https://flow.fluctuo.com/login) (it's free for hoby prject and low traffic applications)
 4. Create an `.env` File and add the necessary API tokens:
     ```javascript
@@ -20,6 +20,10 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 5. Install the packages via `yarn` or `npm install`
 6. Start the development server with `yarn start` or `npm run start`
 
+## Services, Sources and Inspirations
+- the Address Autocomplete Forme use the Geolocation APP from [HERE](https:://here.com) 
+- The Vehicles Data use the API provided by [Fluctuo](https://fluctuo.com/) (former Multicycles). Thanks to the work of [Pierrick Paul](https://github.com/PierrickP)!
+
 ## Todo
 - add submitbutton to locationsearchform
 - vehicle details animation(slide) with react Transitions
@@ -27,16 +31,12 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 - cache policy (prevent refetching on page switch)
 - testing with jest and react-testing
 - TravisCI
-- refetch policy
-- use cache and cookies
-- fitbound map to results ()
-- add filter options
+- fitbound map to results
+- add filter options (for provider and vehicle types)
 - enable PWA
 - convert into Monorepo with own Graphql endpoint for usage of further API (bikeciti.es et. al.)
 ---
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

@@ -49,6 +49,10 @@ const LocationSearch = ({ updateLocation }) => {
     setSelectedLocation(suggestionValue.suggestion);
   };
 
+  const onSuggestionsClearRequested = () => {
+    console.log('onSuggestionsClearRequested');
+  }
+
   const renderSuggestion = suggestion => {
     return (
       <span data-location-id={suggestion.id}>{suggestion.locationName}</span>
@@ -71,6 +75,7 @@ const LocationSearch = ({ updateLocation }) => {
           }}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
           onSuggestionSelected={onSuggestionSelected}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           shouldRenderSuggestions={shouldRenderSuggestions}

@@ -81,8 +81,6 @@ const BMap = () => {
   };
 
   useEffect(() => {
-    console.log('rerender on location change --- useEffect');
-
     const map = mapRef.current;
     if (map !== null && location.mapView) {
       //this might be already submitted by locationsearch component in a proper manner
@@ -98,7 +96,6 @@ const BMap = () => {
     //TODO: else: zoom default
     // location.zoom = location.zoom || 14;
     location.lat && location.lng && setMapPosition(location);
-    // map.leafletElement.setZoom(14);
   }, [location, mapRef]);
 
   const onMoveEnd = e => {
@@ -123,7 +120,6 @@ const BMap = () => {
         center={[mapPosition.lat, mapPosition.lng]}
         // zoom={mapPosition.zoom}
         zoom={15}
-        // maxZoom={16}
         attributionControl={true}
         zoomControl={true}
         doubleClickZoom={true}
@@ -138,7 +134,7 @@ const BMap = () => {
         <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
         {loading && <LoadingIndicator />}
 
-        {!loading && !data.vehicles.length && (
+        {!loading && (!data || !data.vehicles) && (
           <Marker position={[mapPosition.lat, mapPosition.lng]}>
             <Popup>
               We searched here, but there seems to be no available vehicle
