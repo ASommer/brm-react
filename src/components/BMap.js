@@ -66,7 +66,7 @@ const BMap = () => {
       (Math.abs(location.lat - newLocation.lat) > mapMoveTreshold ||
       Math.abs(location.lng - newLocation.lng) > mapMoveTreshold)
     ) {
-      console.log('update location');
+      // console.log('update location');
       setlocation({
         ...location,
         ...newLocation

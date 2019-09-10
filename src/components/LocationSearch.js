@@ -50,7 +50,7 @@ const LocationSearch = ({ updateLocation }) => {
   };
 
   const onSuggestionsClearRequested = () => {
-    console.log('onSuggestionsClearRequested');
+    // console.log('onSuggestionsClearRequested');
   }
 
   const renderSuggestion = suggestion => {
@@ -69,7 +69,7 @@ const LocationSearch = ({ updateLocation }) => {
         <Autosuggest
           suggestions={locSuggestions}
           inputProps={{
-            placeholder: 'Type a Cityname',
+            placeholder: 'Type Adress or Cityname',
             value: searchTerm,
             onChange: onChange
           }}
