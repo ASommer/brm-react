@@ -146,7 +146,6 @@ const BMap = () => {
         {data &&
           data.vehicles &&
           data.vehicles
-            .slice(0, 10)
             .map(item => (
               <VehicleMarker
                 position={[item.lat, item.lng]}
