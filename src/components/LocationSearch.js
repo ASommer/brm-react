@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import getLocationByCityname from '../helper/geoLocationByCityName';
 import Autosuggest from 'react-autosuggest';
+import '../styles/location-search.css';
 
 const LocationSearch = ({ updateLocation }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -64,8 +65,8 @@ const LocationSearch = ({ updateLocation }) => {
   }, [selectedLocation, updateLocation]);
 
   return (
-    <div className="forma-wrapper">
-      <form onSubmit={submitFormHandler} className="location-form-as">
+    <div className="location-search">
+      <form onSubmit={submitFormHandler} className="location-search-form">
         <Autosuggest
           suggestions={locSuggestions}
           inputProps={{

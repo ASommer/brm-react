@@ -1,0 +1,6 @@
+.map-top-bar {
+    position: absolute;
+    z-index: 2000;
+    width: 100%;
+    display: flex;
+}

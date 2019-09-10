@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutPage = () => {
   return (
-    <div className="page">
+    <div className="page narrow-content">
       <h1>About this Site</h1>
       <p>Version V0.2</p>
       <p>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, createRef } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import VehicleMarker from './VehicleMarker';
@@ -8,7 +7,7 @@ import gql from 'graphql-tag';
 
 import DetailView from './DetailView';
 import LoadingIndicator from './LoadingIndicator';
-import LocationSearch from './LocationSearch';
+import MapTopBar from './MapTopBar';
 
 const defaultPosition = {
   lat: 52.52,
@@ -60,12 +59,11 @@ const BMap = () => {
   const mapRef = createRef();
 
   const updateLocation = newLocation => {
-
-    const mapMoveTreshold = .002 //TODO: should calculatetd more precisely and separately for lat and lng
+    const mapMoveTreshold = 0.002; //TODO: should calculatetd more precisely and separately for lat and lng
     if (
-      newLocation && 
+      newLocation &&
       (Math.abs(location.lat - newLocation.lat) > mapMoveTreshold ||
-      Math.abs(location.lng - newLocation.lng) > mapMoveTreshold)
+        Math.abs(location.lng - newLocation.lng) > mapMoveTreshold)
     ) {
       console.log('update location');
       setlocation({
@@ -109,11 +107,7 @@ const BMap = () => {
 
   return (
     <div className="map-container">
-      <LocationSearch updateLocation={updateLocation} />
-      <small className="help-text">
-        We search vehicles within an radius of max 400m. It might help sometimes
-        to move the map in order to find vehicles
-      </small>
+      <MapTopBar updateLocation={updateLocation} />
       {error && <div className="notification">Note: {error}</div>}
 
       <LeafletMap

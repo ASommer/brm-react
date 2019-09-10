@@ -1,9 +1,8 @@
 # Bikerentalmap
 Demo: [brm-react-demo.bikerentalmap.com](htts://brm-react-demo.bikerentalmap.com)
 
-React based App show availables bike, scooters etc. 
+React based App show availables bikes, scooters etc. 
 Data are provided by the [flucto API](https://flow.fluctuo.com/)
-Trying React Hooks
 
 ## Get work on your local machine
 You should have a current version (9+) of [NodeJs](https://nodejs.org) installed on your machine.
@@ -26,8 +25,12 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 
 ## Todo
 - add submitbutton to locationsearchform
-- vehicle details animation(slide) with react Transitions
+- move searchfrom into map
+- improve vehicle details layout; add animation(slide) with Transitions
 - refetch with debounce on moveend
+- improve loader
+- show more details (scooter, battery, station)
+- change mapprovider
 - cache policy (prevent refetching on page switch)
 - testing with jest and react-testing
 - TravisCI
