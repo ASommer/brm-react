@@ -1,25 +1,11 @@
-import React, { useState } from 'react';
-import LocationSearch from './LocationSearch';
+import React from 'react';
 import BMap from './BMap';
 
 const HomePage = () => {
-  const [location, setlocation] = useState({
-    lat: null,
-    lng: null,
-    locationName: ''
-  });
-
-  const updateLocation = newLocation => {
-    setlocation({
-      ...location,
-      ...newLocation
-    });
-  };
 
   return (
-      <div className="homepage page">
-        <LocationSearch updateLocation={updateLocation} />
-        <BMap location={location} />
+      <div className="homepage" style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
+        <BMap />
       </div>
   );
 };
