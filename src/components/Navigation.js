@@ -1,18 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/navigation.css';
+import styled from 'styled-components';
+
+const NavList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const NavListItem = styled.li`
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+`;
+
+const NavLink = styled(Link)`
+  color: var(--brand-color);
+`;
 
 const Navigation = () => {
   return (
     <nav>
-      <ul className="main-navigation">
-        <li className="nav-item">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+      <NavList>
+        <NavListItem>
+          <NavLink to="/">Home</NavLink>
+        </NavListItem>
+        <NavListItem >
+          <NavLink to="/about">About</NavLink>
+        </NavListItem>
+      </NavList>
     </nav>
   );
 };

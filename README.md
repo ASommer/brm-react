@@ -26,6 +26,7 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 ## Todo
 - add submitbutton to locationsearchform
 - move searchfrom into map
+- add skip to main (a11y)
 - improve vehicle details layout; add animation(slide) with Transitions
 - refetch with debounce on moveend
 - improve loader

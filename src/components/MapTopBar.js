@@ -1,14 +1,21 @@
-import React from 'react'
+import React from 'react';
 import LocationSearch from './LocationSearch';
 
-import '../styles/map-top-bar.css';
+import styled from 'styled-components';
 
-const MapTopBar = ({updateLocation}) => {
-    return (
-        <div className="map-top-bar">
-            <LocationSearch updateLocation={updateLocation} />
-        </div>
-    )
-}
+const TopBar = styled.div`
+  position: absolute;
+  z-index: 2000;
+  width: 100%;
+  display: flex;
+`;
 
-export default MapTopBar
+const MapTopBar = ({ updateLocation }) => {
+  return (
+    <TopBar className="map-top-bar">
+      <LocationSearch updateLocation={updateLocation} />
+    </TopBar>
+  );
+};
+
+export default MapTopBar;
