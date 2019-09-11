@@ -65,7 +65,6 @@ const BMap = () => {
       (Math.abs(location.lat - newLocation.lat) > mapMoveTreshold ||
         Math.abs(location.lng - newLocation.lng) > mapMoveTreshold)
     ) {
-      // console.log('update location');
       setlocation({
         ...location,
         ...newLocation
@@ -80,22 +79,8 @@ const BMap = () => {
   };
 
   useEffect(() => {
-    const map = mapRef.current;
-    if (map !== null && location.mapView) {
-      //this might be already submitted by locationsearch component in a proper manner
-      // const LatLngBounds = [
-      //   [location.mapView.TopLeft.Latitude, location.mapView.TopLeft.Longitude],
-      //   [
-      //     location.mapView.BottomRight.Latitude,
-      //     location.mapView.BottomRight.Longitude
-      //   ]
-      // ];
-      // map.leafletElement.fitBounds(LatLngBounds)
-    }
-    //TODO: else: zoom default
-    // location.zoom = location.zoom || 14;
     location.lat && location.lng && setMapPosition(location);
-  }, [location, mapRef]);
+  }, [location]);
 
   const onMoveEnd = e => {
     updateLocation(e.target.getCenter());
@@ -113,7 +98,6 @@ const BMap = () => {
       <LeafletMap
         id="map1"
         center={[mapPosition.lat, mapPosition.lng]}
-        // zoom={mapPosition.zoom}
         zoom={15}
         attributionControl={true}
         zoomControl={true}
@@ -140,16 +124,15 @@ const BMap = () => {
 
         {data &&
           data.vehicles &&
-          data.vehicles
-            .map(item => (
-              <VehicleMarker
-                position={[item.lat, item.lng]}
-                providerSlug={item.provider.slug}
-                key={item.id}
-                props={item}
-                clickHandler={e => showVehicleDetails(e, item)}
-              />
-            ))}
+          data.vehicles.map(item => (
+            <VehicleMarker
+              position={[item.lat, item.lng]}
+              providerSlug={item.provider.slug}
+              key={item.id}
+              props={item}
+              clickHandler={e => showVehicleDetails(e, item)}
+            />
+          ))}
       </LeafletMap>
       <DetailView isVisible={detailsVisible} vehicleProps={selectedVehicle} />
     </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Logo = () => {
-  return <div>LogoImage here</div>;
-};
+// TODO: has still to be implemented when Logo is deliverd
+const Logo = () => <div>LogoImage here</div>;
 
 export default Logo;

@@ -4,7 +4,7 @@ import BMap from './BMap';
 const HomePage = () => {
 
   return (
-      <div className="homepage" style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
+      <div className="home page">
         <BMap />
       </div>
   );
