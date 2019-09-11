@@ -67,12 +67,14 @@ const LocationSearch = ({ updateLocation }) => {
   return (
     <div className="location-search">
       <form onSubmit={submitFormHandler} className="location-search-form">
+      <label for="brm-location-search" className="sr-only">Search for Address or City</label>
         <Autosuggest
           suggestions={locSuggestions}
           inputProps={{
             placeholder: 'Type a Cityname',
             value: searchTerm,
-            onChange: onChange
+            onChange: onChange,
+            id: "brm-location-search",
           }}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
           onSuggestionSelected={onSuggestionSelected}
