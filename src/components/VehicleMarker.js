@@ -3,7 +3,6 @@ import L from 'leaflet';
 import { Marker } from "react-leaflet"
 
 const VehicleMarker = props => {
-
   let provIcon = require(`../assets/markers/default.png`);
   let provIconRetina = require(`../assets/markers/default-2x.png`);
 
