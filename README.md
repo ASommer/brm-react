@@ -23,6 +23,33 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 - the Address Autocomplete Forme use the Geolocation APP from [HERE](https:://here.com) 
 - The Vehicles Data use the API provided by [Fluctuo](https://fluctuo.com/) (former Multicycles). Thanks to the work of [Pierrick Paul](https://github.com/PierrickP)!
 
+
+---
+## Some words about the Code
+
+### 3rd part libraries
+I mostly try to avoid add additional libraries in order to have more knowledge and confidence of my code and keep the payload small.
+Sometimes I opt for some wellknown packages which may simplify or speed up development and plan to replace some of them later with leaner solutions.
+
+Services and packages used:
+
+- FetchAPI vs. Axios: opting here for the native FetchAPI because it's lean (Downside: missing IE11 support)-> might change  
+- react-autosuggest: speedup development and ensure accessibilty
+- react-apollo, apolo-boost etc: the most convinient way to handle grapqhql queries
+- Leflet-Maps: I prefer Open Source Solutions over propriarty ones (e.g.) Google Maps; especially to avoid subitting user data to third parties
+- HERE geolocation: try out an alternative to Google GeolocationAPI, works pretty good so far
+
+### Styling
+In general I prefer good old css styles in separate files. Css-in-js tends to blow up a component and ends up in writing duplicate code.
+So I started with simple css, planing to integrate some pre/postprocessing.
+Anyhow I will give styled-components a try, just to learn and see if or when it make sense to use it.
+
+### Testing
+
+I don't have much experience in testing and I always wondered how do I know what tests are useful.
+After some reading I decided to concentrate on Integration tests, ignore snapshot tests(except they make sense); some unit tests and later some E2E Test w/ Cypress (yet to come)
+
+
 ## Todo
 - add submitbutton to locationsearchform
 - move searchfrom into map
