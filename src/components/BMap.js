@@ -2,12 +2,24 @@ import React, { useState, useEffect, createRef } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import VehicleMarker from './VehicleMarker';
 import { useQuery } from '@apollo/react-hooks';
-import '../styles/bmap.css';
+// import '../styles/bmap.css';
 import gql from 'graphql-tag';
-
+import styled from 'styled-components';
 import DetailView from './DetailView';
 import LoadingIndicator from './LoadingIndicator';
 import MapTopBar from './MapTopBar';
+
+const BMapContainer = styled.div`
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: '1 0 100%';
+`;
+
+const LeafletContainer = styled(LeafletMap)`
+  flex: 1;
+`;
 
 const defaultPosition = {
   lat: 52.52,
@@ -72,11 +84,14 @@ const BMap = () => {
     }
   };
 
+  // const setDetailAnimationStatus = (boolVal) =>  setIsAnimatingDetailsView(boolVal)
+
   const showVehicleDetails = (e, item) => {
     const itemActive = item !== selectedVehicle ? item : null;
     setDetailsVisible(!!itemActive);
     setSelectedVehicle(itemActive);
   };
+
 
   useEffect(() => {
     location.lat && location.lng && setMapPosition(location);
@@ -91,11 +106,11 @@ const BMap = () => {
   });
 
   return (
-    <div className="map-container">
+    <BMapContainer className="map-container">
       <MapTopBar updateLocation={updateLocation} />
       {error && <div className="notification">Note: {error}</div>}
 
-      <LeafletMap
+      <LeafletContainer
         id="map1"
         center={[mapPosition.lat, mapPosition.lng]}
         zoom={15}
@@ -124,18 +139,23 @@ const BMap = () => {
 
         {data &&
           data.vehicles &&
-          data.vehicles.map(item => (
-            <VehicleMarker
-              position={[item.lat, item.lng]}
-              providerSlug={item.provider.slug}
-              key={item.id}
-              props={item}
-              clickHandler={e => showVehicleDetails(e, item)}
-            />
-          ))}
-      </LeafletMap>
-      <DetailView isVisible={detailsVisible} vehicleProps={selectedVehicle} />
-    </div>
+          data.vehicles
+            .map(item => (
+              <VehicleMarker
+                position={[item.lat, item.lng]}
+                providerSlug={item.provider.slug}
+                key={item.id}
+                props={item}
+                clickHandler={e => showVehicleDetails(e, item)}
+              />
+            ))}
+      </LeafletContainer>
+
+      <DetailView
+        isVisible={detailsVisible}
+        vehicleProps={selectedVehicle}
+      />
+    </BMapContainer>
   );
 };
 

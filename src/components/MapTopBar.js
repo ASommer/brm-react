@@ -1,13 +1,20 @@
 import React from 'react';
 import LocationSearch from './LocationSearch';
 
-import '../styles/map-top-bar.css';
+import styled from 'styled-components';
+
+const TopBar = styled.div`
+  position: absolute;
+  z-index: 800;
+  width: 100%;
+  display: flex;
+`;
 
 const MapTopBar = ({ updateLocation }) => {
   return (
-    <div className="map-top-bar">
+    <TopBar>
       <LocationSearch updateLocation={updateLocation} />
-    </div>
+    </TopBar>
   );
 };
 

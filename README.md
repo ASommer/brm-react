@@ -4,7 +4,7 @@ Demo: [brm-react-demo.bikerentalmap.com](htts://brm-react-demo.bikerentalmap.com
 React based App show availables bikes, scooters etc. 
 Data are provided by the [flucto API](https://flow.fluctuo.com/)
 
-## Get work on your local machine
+## Get it work on your local machine
 You should have a current version (9+) of [NodeJs](https://nodejs.org) installed on your machine.
 
 1. Clone or download this repo.
@@ -20,15 +20,38 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 6. Start the development server with `yarn start` or `npm run start`
 
 ## Services, Sources and Inspirations
-- the Address Autocomplete Forme use the Geolocation APP from [HERE](https:://here.com) 
+- the Address Autocomplete Form use the Geolocation APP from [HERE](https:://here.com) 
 - The Vehicles Data use the API provided by [Fluctuo](https://fluctuo.com/) (former Multicycles). Thanks to the work of [Pierrick Paul](https://github.com/PierrickP)!
+
+---
+## Some words about the Code
+
+### 3rd part libraries
+I mostly try to avoid add additional libraries in order to have more knowledge and confidence of my code and keep the payload small.
+Sometimes I opt for some wellknown packages which may simplify or speed up development and plan to replace some of them later with leaner solutions.
+
+Services and packages used:
+- FetchAPI vs. Axios: opting here for the native FetchAPI because it's lean (Downside: missing IE11 support)-> might change  
+- react-autosuggest: speedup development and ensure accessibilty
+- react-apollo, apolo-boost etc: the most convinient way to handle grapqhql queries
+- Leflet-Maps: I prefer Open Source Solutions over propriarty ones (e.g.) Google Maps; especially to avoid subitting user data to third parties
+- HERE geolocation: try out an alternative to Google GeolocationAPI, works pretty good so far
+
+### Styling
+In general I prefer good old css styles in separate files. Css-in-js tends to blow up a component and ends up in writing duplicate code.
+So I started with simple css, planing to integrate some pre/postprocessing.
+Anyhow I will give styled-components a try, just to learn and see if or when it make sense to use it.
+
+### Testing
+I don't have much experience in testing yet and I always wondered how do I know what tests are useful.
+After some reading I decided to concentrate on Integration tests, ignore snapshot tests(except they make sense); some unit tests and later some E2E Test w/ Cypress (yet to come);
+Just started 
 
 ## Todo
 - add submitbutton to locationsearchform
-- move searchfrom into map
-- improve vehicle details layout; add animation(slide) with Transitions
+- add skip to main (a11y)
+- improve vehicle details layout; 
 - refetch with debounce on moveend
-- improve loader
 - show more details (scooter, battery, station)
 - change mapprovider
 - cache policy (prevent refetching on page switch)
@@ -39,7 +62,6 @@ You should have a current version (9+) of [NodeJs](https://nodejs.org) installed
 - enable PWA
 - convert into Monorepo with own Graphql endpoint for usage of further API (bikeciti.es et. al.)
 ---
-
 
 ## Available Scripts
 
