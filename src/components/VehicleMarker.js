@@ -2,7 +2,6 @@ import React from 'react';
 import L from 'leaflet';
 import { Marker } from 'react-leaflet';
 import styled from 'styled-components';
-import '../styles/vehicle-marker.css'
 
 const StyledMarker = styled(Marker)`
   background: transparent;

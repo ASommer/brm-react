@@ -11,7 +11,7 @@ const ViewWrapper = styled.div`
   &.is--visible {
     height: 100px;
     background: white;
-    transition: height 0.1s;
+    transition: height 0.05s;
   }
 `;
 

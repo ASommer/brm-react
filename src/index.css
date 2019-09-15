@@ -30,8 +30,15 @@ body {
   align-items: center;
 }
 
+/* *****************++++++++++++++++++++++++ */
+/* transparent background for leaflet marker */
+.leaflet-div-icon {
+  background: transparent;
+  border: 0 transparent;
+}
 
-/* REACT AUtoSuggest */
+/* ***************** */
+/* React AutoSuggest */
 .react-autosuggest__container {
   position: relative;
 }
@@ -94,13 +101,12 @@ body {
   background-color: #ddd;
 }
 
-
 .sr-only:not(:focus):not(:active) {
-  clip: rect(0 0 0 0); 
+  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
-  white-space: nowrap; 
+  white-space: nowrap;
   width: 1px;
 }
