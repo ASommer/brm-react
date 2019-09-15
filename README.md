@@ -53,6 +53,7 @@ After some reading I decided to concentrate on Integration tests, ignore snapsho
 ## Todo
 - add submitbutton to locationsearchform
 - move searchfrom into map
+- add skip to main (a11y)
 - improve vehicle details layout; add animation(slide) with Transitions
 - refetch with debounce on moveend
 - improve loader

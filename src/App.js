@@ -5,9 +5,9 @@ import mcClient from './apollo/client';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
-import HomePage from './components/Home';
-import AboutPage from './components/AboutPage';
-import Layout from './components/Layout';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Main from '././components/Main';
 import Footer from './components/Footer';
 
 function App() {
@@ -16,12 +16,12 @@ function App() {
       <BrowserRouter>
         <ApolloProviderHooks client={mcClient}>
           <Header />
-          <Layout>
+          <Main>
             <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/about" component={AboutPage} />
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
             </Switch>
-          </Layout>
+          </Main>
           <Footer />
         </ApolloProviderHooks>
       </BrowserRouter>
