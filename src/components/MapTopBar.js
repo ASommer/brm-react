@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const TopBar = styled.div`
   position: absolute;
-  z-index: 2000;
+  z-index: 800;
   width: 100%;
   display: flex;
 `;

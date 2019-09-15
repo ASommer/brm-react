@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import getLocationByCityname from '../helper/geoLocationByCityName';
 import Autosuggest from 'react-autosuggest';
 import styled from 'styled-components';
+import GeoLocation from './GeoLocation';
 
 const LocationSearchWrapper = styled.div`
   margin: 0 auto;
@@ -9,25 +10,29 @@ const LocationSearchWrapper = styled.div`
 `;
 
 const Notification = styled.div`
-  padding: 0.5em; 
-`
+  padding: 0.5em;
+`;
 
 const LocationSearch = ({ updateLocation }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [locSuggestions, setLocSuggestions] = useState([]);
-  const [notification, setNotification] = useState(null)
+  const [notification, setNotification] = useState(null);
+  const [myPosition, setMyPosition] = useState(null);
 
   const submitFormHandler = e => {
     e.preventDefault();
     if (selectedLocation && selectedLocation.lat && selectedLocation.lng) {
       updateLocation(selectedLocation);
-      setNotification(null)
+      setNotification(null);
     } else if (searchTerm && searchTerm.length > 2) {
       // retireve location
-      setNotification(null) //TODO: check for best UX(show loader or hint)
+      setNotification(null); //TODO: check for best UX(show loader or hint)
     } else {
-      setNotification({status: 'error', msg: 'could not retrieve location, please try another one'})
+      setNotification({
+        status: 'error',
+        msg: 'could not retrieve location, please try another one'
+      });
     }
   };
 
@@ -80,8 +85,17 @@ const LocationSearch = ({ updateLocation }) => {
     [selectedLocation, updateLocation]
   );
 
+  useEffect(() => {
+    if (!selectedLocation && myPosition) {
+      updateLocation({
+        lat: myPosition.latitude,
+        lng: myPosition.longitude
+      });
+    }
+  }, [myPosition, selectedLocation, updateLocation]);
+
   return (
-    <LocationSearchWrapper >
+    <LocationSearchWrapper>
       <form onSubmit={submitFormHandler} className="location-search-form">
         <label htmlFor="brm-location-search" className="sr-only">
           Search for Address or City
@@ -104,6 +118,7 @@ const LocationSearch = ({ updateLocation }) => {
         />
         {notification && <Notification>{notification.msg}</Notification>}
       </form>
+      <GeoLocation setMyPosition={setMyPosition} />
     </LocationSearchWrapper>
   );
 };
