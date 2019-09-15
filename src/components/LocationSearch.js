@@ -69,7 +69,7 @@ const LocationSearch = ({ updateLocation }) => {
   };
 
   const onSuggestionsClearRequested = () => {
-    console.log('onSuggestionsClearRequested');
+    // console.log('onSuggestionsClearRequested');
   };
 
   const renderSuggestion = suggestion => {

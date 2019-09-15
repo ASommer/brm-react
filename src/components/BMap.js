@@ -77,7 +77,6 @@ const BMap = () => {
       (Math.abs(location.lat - newLocation.lat) > mapMoveTreshold ||
         Math.abs(location.lng - newLocation.lng) > mapMoveTreshold)
     ) {
-      console.log('update location');
       setlocation({
         ...location,
         ...newLocation
@@ -156,7 +155,6 @@ const BMap = () => {
         {data &&
           data.vehicles &&
           data.vehicles
-            .slice(0, 10)
             .map(item => (
               <VehicleMarker
                 position={[item.lat, item.lng]}
