@@ -85,11 +85,14 @@ const BMap = () => {
     }
   };
 
+  // const setDetailAnimationStatus = (boolVal) =>  setIsAnimatingDetailsView(boolVal)
+
   const showVehicleDetails = (e, item) => {
     const itemActive = item !== selectedVehicle ? item : null;
     setDetailsVisible(!!itemActive);
     setSelectedVehicle(itemActive);
   };
+
 
   useEffect(() => {
     const map = mapRef.current;
@@ -164,7 +167,11 @@ const BMap = () => {
               />
             ))}
       </LeafletContainer>
-      <DetailView isVisible={detailsVisible} vehicleProps={selectedVehicle} />
+
+      <DetailView
+        isVisible={detailsVisible}
+        vehicleProps={selectedVehicle}
+      />
     </BMapContainer>
   );
 };

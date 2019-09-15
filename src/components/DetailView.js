@@ -2,6 +2,19 @@ import React from 'react';
 // import '../styles/detail-view.css';
 import styled from 'styled-components';
 
+const ViewWrapper = styled.div`
+  background: transparent;
+  opacity: 1;
+  height: 0;
+  transition: height 50ms;
+
+  &.is--visible {
+    height: 100px;
+    background: white;
+    transition: height 0.1s;
+  }
+`;
+
 const SelectedVehicleContainer = styled.div`
   background-color: rgba(240, 240, 240, 0.5);
   border: 2px solid var(--brand-color);
@@ -41,33 +54,34 @@ const DetailView = ({ isVisible, vehicleProps }) => {
   };
 
   return (
-    isVisible &&
-    vehicleProps && (
-      <SelectedVehicleContainer className={'selected-vehicle'}>
-        <DetailRow1 className="vehicle-details details-row">
-          <ProviderLogo className="provider-logo">
-            <LogoImage slug={vehicleProps.provider.slug} />
-          </ProviderLogo>
-          <ProviderName className="provider-name">
-            <a href={vehicleProps.provider.website}>
-              {vehicleProps.provider.name}
+    <ViewWrapper className={isVisible && 'is--visible'}>
+      {vehicleProps && (
+        <SelectedVehicleContainer className={'selected-vehicle'}>
+          <DetailRow1 className="vehicle-details details-row">
+            <ProviderLogo className="provider-logo">
+              <LogoImage slug={vehicleProps.provider.slug} />
+            </ProviderLogo>
+            <ProviderName className="provider-name">
+              <a href={vehicleProps.provider.website}>
+                {vehicleProps.provider.name}
+              </a>
+            </ProviderName>
+            <div className="vehicle-type">{vehicleProps.type}</div>
+          </DetailRow1>
+          <DetailsRow2 className="app-links details-row">
+            <a href={vehicleProps.provider.app.ios} className="ios">
+              <img src={require(`../assets/ios-badge.png`)} alt="ios-badge" />{' '}
             </a>
-          </ProviderName>
-          <div className="vehicle-type">{vehicleProps.type}</div>
-        </DetailRow1>
-        <DetailsRow2 className="app-links details-row">
-          <a href={vehicleProps.provider.app.ios} className="ios">
-            <img src={require(`../assets/ios-badge.png`)} alt="ios-badge" />{' '}
-          </a>
-          <a href={vehicleProps.provider.app.android} className="android">
-            <img
-              src={require(`../assets/android-badge.png`)}
-              alt="android-badge"
-            />
-          </a>
-        </DetailsRow2>
-      </SelectedVehicleContainer>
-    )
+            <a href={vehicleProps.provider.app.android} className="android">
+              <img
+                src={require(`../assets/android-badge.png`)}
+                alt="android-badge"
+              />
+            </a>
+          </DetailsRow2>
+        </SelectedVehicleContainer>
+      )}
+    </ViewWrapper>
   );
 };
 
