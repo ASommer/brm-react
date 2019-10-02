@@ -1,8 +1,10 @@
 # Bikerentalmap
 Demo: [brm-react-demo.bikerentalmap.com](htts://brm-react-demo.bikerentalmap.com)
 
-React based App show availables bikes, scooters etc. 
+React based App showing availables bikes, scooters etc. nearby or at a given address
 Data are provided by the [flucto API](https://flow.fluctuo.com/)
+
+**Note**: This is a work in progress
 
 ## Get it work on your local machine
 You should have a current version (9+) of [NodeJs](https://nodejs.org) installed on your machine.
