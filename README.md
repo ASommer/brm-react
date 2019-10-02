@@ -10,7 +10,7 @@ Data are provided by the [flucto API](https://flow.fluctuo.com/)
 You should have a current version (9+) of [NodeJs](https://nodejs.org) installed on your machine.
 
 1. Clone or download this repo.
-2. In order to use the [HERE](https:://here.com) [Geolocation API](https://developer.here.com/documentation/geocoder/topics/what-is.html?create=Freemium-Basic&keepState=true&step=account), create an account for free.
+2. In order to use the [HERE](https://here.com) [Geolocation API](https://developer.here.com/documentation/geocoder/topics/what-is.html?create=Freemium-Basic&keepState=true&step=account), create an account for free.
 3. To fetch vehicle data create a developer account for the [flucto API](https://flow.fluctuo.com/login) (it's free for hoby prject and low traffic applications)
 4. Create an `.env` File and add the necessary API tokens:
     ```javascript
